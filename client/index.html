@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataChat — Chat with Your Data</title>
+    <meta
+      name="description"
+      content="Upload CSV or Excel files and ask questions in English or Persian. DataChat writes safe SQL, runs it in a secured sandbox, and answers with interactive charts."
+    />
+    <meta name="theme-color" content="#0b1120" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600&display=swap"
+    />
+
+    <!-- Apply the saved theme before first paint to avoid a light/dark flash. -->
+    <script>
+      try {
+        const saved = localStorage.getItem('theme')
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.classList.toggle('dark', dark)
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

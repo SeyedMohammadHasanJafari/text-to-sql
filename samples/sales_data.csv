@@ -1,0 +1,13 @@
+transaction_id,customer_id,product_category,revenue,transaction_date,is_online
+101,C1,Electronics,12500000,2024-01-15,true
+102,C2,Clothing,3400000,2024-01-18,true
+103,C1,Home,4200000,2024-02-05,false
+104,C3,Electronics,28900000,2024-02-14,true
+105,C4,Books,1100000,2024-02-20,false
+106,C2,Electronics,8700000,2024-03-01,true
+107,C5,Clothing,5600000,2024-03-12,true
+108,C3,Clothing,7800000,2024-03-25,false
+109,C1,Electronics,15200000,2024-04-02,true
+110,C4,Home,6300000,2024-04-18,true
+111,C2,Books,950000,2024-05-09,false
+112,C5,Electronics,22100000,2024-05-21,true
