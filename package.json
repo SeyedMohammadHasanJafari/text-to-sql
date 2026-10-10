@@ -2,9 +2,15 @@
   "name": "text-to-sql",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Chat with Your Data — a secure Text-to-SQL AI agent (React + Express + PostgreSQL).",
+  "workspaces": [
+    "server",
+    "client"
+  ],
   "scripts": {
     "setup": "npm install && npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
     "db:up": "docker compose up -d --wait",
     "db:down": "docker compose down",
     "db:bootstrap": "npm run db:bootstrap --prefix server",

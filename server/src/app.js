@@ -33,8 +33,17 @@ export function createApp() {
       autoLogging: { ignore: (req) => req.url === '/api/health' },
     }),
   );
-  app.use(helmet());
-  app.use(cors({ origin: config.clientOrigin, credentials: true }));
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin || origin === config.clientOrigin || (process.env.VERCEL && origin.endsWith('.vercel.app'))) {
+          return callback(null, true);
+        }
+        return callback(null, config.clientOrigin);
+      },
+      credentials: true,
+    }),
+  );
   app.use('/api', apiLimiter, requireJsonForMutations);
   app.use(express.json({ limit: '100kb' }));
   app.use(cookieParser());

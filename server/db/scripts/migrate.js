@@ -33,6 +33,7 @@ async function loadMigrations() {
 await runScript('Migration', () =>
   withClient(config.db.adminUrl, async (client) => {
     await client.query('SELECT pg_advisory_lock($1)', [ADVISORY_LOCK_KEY]); // released when the connection closes
+    await client.query('CREATE SCHEMA IF NOT EXISTS app;');
     await client.query(`
       CREATE TABLE IF NOT EXISTS app.schema_migrations (
         version    text        PRIMARY KEY,

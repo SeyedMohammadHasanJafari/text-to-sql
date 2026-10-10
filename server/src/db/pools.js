@@ -12,12 +12,14 @@ import { logger } from '#lib/logger.js';
  *    AI-generated SQL must NEVER touch adminPool.
  */
 function createPool(connectionString, name, overrides = {}) {
+  const isLocal = connectionString.includes('localhost') || connectionString.includes('127.0.0.1');
   const pool = new pg.Pool({
     connectionString,
     application_name: `text-to-sql:${name}`,
     max: 10,
     idleTimeoutMillis: 30_000,
     connectionTimeoutMillis: 5_000,
+    ssl: !isLocal ? { rejectUnauthorized: false } : undefined,
     ...overrides,
   });
 
